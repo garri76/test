@@ -63,3 +63,39 @@ sed -i.bak -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"
 sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_blocks\"/" /root/.deweb/config/app.toml
 sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cache\"/" /root/.deweb/config/app.toml
 ```
+## Download addrbook
+```
+wget -O $HOME/.deweb/config/addrbook.json "https://raw.githubusercontent.com/BadaBing01/Cosmos-Chains-Sync/main/DWS/addrbook.json"
+```
+## Service file
+```
+sudo tee /etc/systemd/system/dewebd.service > /dev/null <<EOF
+[Unit]
+Description=deweb
+After=network-online.target
+
+[Service]
+User=$USER
+ExecStart=$(which dewebd) start
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+## Run
+```
+sudo systemctl daemon-reload && \
+sudo systemctl enable dewebd && \
+sudo systemctl restart dewebd && \
+sudo journalctl -u dewebd -f -o cat
+```
+## Sync status
+### While synchronization is in progress, the status will be true
+### When the node is synchronized, the status will be false
+```
+dewebd status 2>&1 | jq .SyncInfo
+
+```
