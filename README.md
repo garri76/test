@@ -1,5 +1,7 @@
 # DWS Node Setup Guide
 
+## Don't forget to remove those <> symbols and enter your own values
+
 ## Server preparetion
 ```
 sudo apt update && sudo apt upgrade -y && \
@@ -106,4 +108,21 @@ dewebd keys add <wallet name>
 
 dewebd keys add <wallet name> --recover
 ```
-## Fund your wallet in [Discord](https://discord.gg/NQwe4yxu)
+## Fund your wallet in ### [Discord](https://discord.gg/NQwe4yxu)
+## Create validator after sync
+```
+dewebd tx staking create-validator \
+--amount 10000000udws \
+--moniker <validator name> \
+--commission-max-change-rate "0.10" \
+--commission-max-rate "0.20" \
+--commission-rate "0.10" \
+--min-self-delegation "1" \
+--identity="<for validator logo>" \
+--details="<description>" \
+--website="" \
+--pubkey $(dewebd tendermint show-validator) \
+--chain-id deweb-testnet-sirius \
+--from <wallet name>
+-y
+```
