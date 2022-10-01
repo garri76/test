@@ -99,7 +99,7 @@ sudo journalctl -u dewebd -f -o cat
 dewebd status 2>&1 | jq .SyncInfo
 ```
 ## Create/Recover wallet
-#### ***Important*** write this mnemonic phrase in a safe place.
+#### **Important* write this mnemonic phrase in a safe place.
 It is the only way to recover your account if you ever forget your password.
 ```
 dewebd keys add <wallet name>
