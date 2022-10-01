@@ -4,6 +4,7 @@
 ## Values in "" remain in ""
 ```
 Example: dewebd keys add <wallet name> --> dewebd keys add wallet
+
 Example: --details="<description>" --> --details="Independet validator"
 ```
 
