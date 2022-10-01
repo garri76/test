@@ -24,3 +24,35 @@ cd deweb && \
 git checkout v0.3.1 && \
 make install
 ```
+## Init node
+```
+dewebd init <Node Name> --chain-id deweb-testnet-sirius
+dewebd config chain-id deweb-testnet-sirius
+```
+## Download genesis file
+```
+curl -s https://raw.githubusercontent.com/deweb-services/deweb/main/genesis.json > ~/.deweb/config/genesis.json
+```
+## Indexing/Pruning/Minimum gas price
+```
+indexer="null" && \
+min_retain_blocks=1 && \
+minimum_gas_prices="0.001udws" && \
+snapshot_interval="100" && \
+pruning="custom" && \
+pruning_keep_recent="100" && \
+pruning_keep_every="0" && \
+pruning_interval="10" && \
+min_retain_blocks="1" && \
+inter_block_cache="false" && \
+sed -i.bak -e "s/^indexer *=.*/indexer = \"$indexer\"/" /root/.deweb/config/config.toml && \
+sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_blocks\"/" /root/.deweb/config/app.toml && \
+sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"$minimum_gas_prices\"/" /root/.deweb/config/app.toml && \
+sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" /root/.deweb/config/app.toml && \
+sed -i.bak -e "s/^pruning *=.*/pruning = \"$pruning\"/" /root/.deweb/config/app.toml && \
+sed -i.bak -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" /root/.deweb/config/app.toml && \
+sed -i.bak -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" /root/.deweb/config/app.toml && \
+sed -i.bak -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" /root/.deweb/config/app.toml
+sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_blocks\"/" /root/.deweb/config/app.toml
+sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cache\"/" /root/.deweb/config/app.toml
+```
