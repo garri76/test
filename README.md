@@ -109,7 +109,7 @@ dewebd status 2>&1 | jq .SyncInfo
 ```
 ## Create/Recover wallet
 ### Important write this mnemonic phrase in a safe place
-### It is the only way to recover your account if you ever forget your password
+### It is the only way to recover your wallet if you ever forget your password
 ```
 dewebd keys add <wallet name>
 
@@ -133,4 +133,6 @@ dewebd tx staking create-validator \
 --from <wallet name>
 -y
 ```
+### Important save priv_validator_key.json file from .deweb/config/
+### It is the only way to recover your validator if something happens to your the server
 ___
