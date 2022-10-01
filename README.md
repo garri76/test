@@ -93,8 +93,16 @@ sudo systemctl restart dewebd && \
 sudo journalctl -u dewebd -f -o cat
 ```
 ## Sync status
-##### While synchronization is in progress, the status will be true
-##### When the node is synchronized, the status will be false
+#### While synchronization is in progress, the status will be true
+#### When the node is synchronized, the status will be false
 ```
 dewebd status 2>&1 | jq .SyncInfo
+```
+## Create/Recover wallet
+#### **Important** write this mnemonic phrase in a safe place.
+It is the only way to recover your account if you ever forget your password.
+```
+dewebd keys add <wallet name>
+
+dewebd keys add <wallet name> --recover
 ```
