@@ -111,7 +111,7 @@ dewebd keys add <wallet name>
 
 dewebd keys add <wallet name> --recover
 ```
-## Fund your wallet in ### [Discord](https://discord.gg/NQwe4yxu)
+## Fund your wallet in [Discord](https://discord.gg/NQwe4yxu)
 ## Create validator after sync
 ```
 dewebd tx staking create-validator \
