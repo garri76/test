@@ -1,6 +1,7 @@
 # DWS Node Setup Guide
 
 ## Don't forget to remove those <> symbols and enter your own values
+Example dewebd keys add <wallet name> --> dewebd keys add wallet
 
 ## Server preparetion
 ```
