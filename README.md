@@ -1,4 +1,5 @@
 # DWS Node Setup Guide
+* https://deweb.services/
 
 ## Don't forget to remove those <> symbols and enter your own values
 ## Values in "" remain in ""
