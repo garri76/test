@@ -132,3 +132,4 @@ dewebd tx staking create-validator \
 --from <wallet name>
 -y
 ```
+___
