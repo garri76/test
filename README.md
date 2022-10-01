@@ -33,6 +33,13 @@ dewebd config chain-id deweb-testnet-sirius
 ```
 curl -s https://raw.githubusercontent.com/deweb-services/deweb/main/genesis.json > ~/.deweb/config/genesis.json
 ```
+## Seeds/Peers
+```
+peers=""
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.deweb/config/config.toml
+
+sed -E -i 's/seeds = \".*\"/seeds = \"2b1aebd0029570c20932bf7a17b3d7e67cbacc52@31.44.6.134:26656\"/' $HOME/.deweb/config/config.toml
+```
 ## Indexing/Pruning/Minimum gas price
 ```
 indexer="null" && \
